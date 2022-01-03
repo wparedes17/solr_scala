@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0m[solrs-build] Classpath dependencies List()[0m
+[0m[[0m[0mdebug[0m] [0m[0m[solrs-build] Dependencies from configurations List()[0m
+[0m[[0m[0mdebug[0m] [0m[0mBloop wrote the configuration of project 'solrs-build' to '/home/wilfrido/github/Scala/solrs/project/.bloop/solrs-build.json'[0m
+[0m[[0m[32msuccess[0m] [0m[0mGenerated .bloop/solrs-build.json[0m

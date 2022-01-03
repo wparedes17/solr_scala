@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(55a1e8c9-a11e-4aa0-90e9-e882fb96e3c7), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: bloop.integrations.sbt.Offloader$$anon$1@333a44f2, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /home/wilfrido/github/Scala/solrs/target/scala-3.1.0/classes ...[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 2 s, completed 1 ene 2022 7:24:44[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
