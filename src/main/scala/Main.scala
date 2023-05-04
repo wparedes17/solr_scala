@@ -1,17 +1,42 @@
+import scala.io.Source
 import com.github.takezoe.solr.scala._
 
-@main def run(): Unit =
-  val client = new SolrClient("dirección de solr")
-  
-  client
-    .add(Map("jobappid" -> "999999", 
-      "jobid" -> "12345",
-      "status" -> "1",
-      "date" -> "2022-01-03 00:00:00.000",
-      "loginid" -> "pruebas75",
-      "resumeid" -> "55555",
-      "scorecandidate" -> "0.9",
-      "origin" -> "0",
-      "dateexpires" -> "2021-01-04 00:00:00.000",
-      "dateindex" -> "2021-01-03 00:00:00.000"))
-    .commit()
+object Indexer {
+  def readFile(filename: String): String = {
+    val fileContent = Source.fromFile(filename + ".txt").mkString
+    return(fileContent)
+  }
+
+  def readDocumentList(filename: String): Array[String] = {
+    val fileLines = Source.fromFile(filename).getLines().toArray
+    return(fileLines)
+  }
+
+  def defSolrClient(): SolrClient = {
+    val client = new SolrClient("http://localhost:8983/solr/doctos_testing")
+    return(client)
+  }
+  def indexDocument(client: SolrClient, title: String, content: String, id: String): Unit = {
+    val document = Map(
+      "id" -> id,
+      "title" -> title,
+      "content" -> content
+    )
+    client.add(document)
+    client.commit()
+    println("Document indexed")
+  }
+}
+object Main {
+  def main(args: Array[String]): Unit = {
+    var id: Int = 1
+    val client = Indexer.defSolrClient()
+    val documentList = Indexer.readDocumentList("lista.txt")
+    for (documentTitle <- documentList){
+      var content = Indexer.readFile(documentTitle)
+      Indexer.indexDocument(client, documentTitle, content, id.toString)
+      id += 1
+    }
+  }
+}
+
